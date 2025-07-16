@@ -28,9 +28,9 @@ pub struct InitConfig<'info> {
     pub system_program: Program<'info, System>,
 }
 impl<'info> InitConfig<'info> {
-    pub fn init_config(&mut self, points_per_stake: u8, max_stake: u8, freeze_period: u32, bumps: &InitConfigBumps) -> Result<()> {
+    pub fn init_config(&mut self, points_per_stake_per_day: u8, max_stake: u8, freeze_period: u32, bumps: &InitConfigBumps) -> Result<()> {
         self.stake_config.set_inner(StakeConfig {
-            points_per_stake,
+            points_per_stake_per_day,
             max_stake,
             freeze_period,
             rewards_bump: bumps.rewards_mint,
